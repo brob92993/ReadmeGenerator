@@ -26,19 +26,19 @@ const questions = [
         type: 'list',
         name: 'license',
         message: 'What kind of license should your project have?',
-        choices: ['MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3', 'None'],
+        choices: ['BSD 3', 'APACHE 2.0', 'GPL 3.0', 'MIT', 'None'],
       },
       {
         type: 'input',
         name: 'installation',
         message: 'What command should be run to install dependencies?',
-        default: 'npm i',
+        default: 'npm i will install dependencies',
       },
       {
         type: 'input',
         name: 'test',
         message: 'What command should be run to run tests?',
-        default: 'npm test',
+        default: 'npm test will run tests',
       },
       {
         type: 'input',
@@ -66,10 +66,21 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) { 
+    return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+} //sync files across the current working directory
+
 
 // TODO: Create a function to initialize app
-function init() {}
+// take the questions above, use them as prompts, and then, with the responses,
+// write those responses into a readme.me, using the generateMarkdown function
+
+function init() {
+ inquirer.prompt(questions).then((inquirerResponse) => { 
+     console.log ('generating..');
+     writeToFile('README.md', generateMarkdown({...inquirerResponse}));
+});   
+}
 
 // Function call to initialize app
 init();
