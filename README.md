@@ -9,7 +9,11 @@ This is a command-line application that takes in a criteria of questions and use
 
 Below, there is a screenshot and a walkthrough video showing how this works.
 
-
+![Walkthrough](img/ReadmeWalkthrough.gif)
 
 
 ![Screenshot of Questions](img/Screenshot1.PNG)
+
+
+[Github Repository](https://github.com/brob92993/ReadmeGenerator.git)
+
